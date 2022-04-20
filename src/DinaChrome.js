@@ -5,6 +5,8 @@ export class DinaChrome {
     this.createPlayground();
     this.loadDinosaur();
     this.dinosaur.run();
+    this.dinosaur.jump();
+    
   }
 
   createPlayground() {
@@ -14,7 +16,7 @@ export class DinaChrome {
   }
 
   loadDinosaur() {
-    this.dinosaur = new Dinosaur(2, 12);
+    this.dinosaur = new Dinosaur(0, 0);
   }
 
   moveDinoRight() {
