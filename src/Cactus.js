@@ -2,13 +2,15 @@ const MOVE_INTERVAL = 10;
 
 
 export class Cactus {
-  constructor(horizantal_ratio, x) {
+  constructor(horizantal_ratio, x, delete_callback) {
     this.x = x;
     this.y = 0;
+    this.delete_callback = delete_callback;
     this.horizantal_ratio = horizantal_ratio
     this.createHtmlElement();
     this.createHtml();
-    // this.move();
+
+    this.move();
   }
 
   createHtmlElement() {
@@ -42,6 +44,16 @@ export class Cactus {
 
   moveLeft() {
     this.x -= 1;
+    if (this.x <= 0){
+      clearInterval(this.moveInterval);
+      this.delete_callback();
+    }
     this.setPostion();
+  }
+
+  remove() {
+    let playground = document.getElementById('playground');
+    playground.removeChild(this.cactusImg);
+    delete this;
   }
 }
