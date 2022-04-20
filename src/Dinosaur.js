@@ -1,8 +1,8 @@
 const RUN_INTERVAL = 10;
-const JUMP_INTERVAL = 10;
+const JUMP_INTERVAL = 5;
 const RUN_DELTA = 0.15;
-const JUMP_DELTA = 0.25;
-const JUMP_HEIGHT = 30;
+const JUMP_DELTA = 0.2;
+const JUMP_HEIGHT = 50;
 
 export class Dinosaur {
   constructor(x, y) {
@@ -10,6 +10,7 @@ export class Dinosaur {
     this.y = y;
     this.createHtmlElement();
     this.createHtml();
+    this.jumpInterval = null;
   }
 
   createHtmlElement() {
@@ -50,6 +51,8 @@ export class Dinosaur {
   }
 
   jump() {
+    if (this.jumpInterval !== null)
+      return;
     this.jumpCount = 0;
     this.jumpInterval = setInterval(
       (function (self) {
@@ -66,7 +69,7 @@ export class Dinosaur {
     if (this.jumpCount < JUMP_HEIGHT) {
       this.y -= JUMP_DELTA;
     }
-    else if ((this.jumpCount >= JUMP_HEIGHT) && (this.jumpCount < 2*JUMP_HEIGHT)) {
+    else if ((this.jumpCount >= JUMP_HEIGHT) && (this.jumpCount < 2 * JUMP_HEIGHT)) {
       this.y += JUMP_DELTA;
     }
     else {

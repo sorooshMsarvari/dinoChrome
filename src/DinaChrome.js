@@ -5,8 +5,11 @@ export class DinaChrome {
     this.createPlayground();
     this.loadDinosaur();
     this.dinosaur.run();
-    this.dinosaur.jump();
-    
+    document.body.onkeydown = (function (self) {
+      return function (e) {
+        self.handleKeyPress(e);
+      }
+    })(this)
   }
 
   createPlayground() {
@@ -21,5 +24,14 @@ export class DinaChrome {
 
   moveDinoRight() {
     this.dinosaur.moveRight();
+  }
+
+  handleKeyPress(e) {
+    // alert(String.fromCharCode(e.keyCode)+" --> "+e.keyCode);
+    if(e.keyCode === 32){
+      console.log(this)
+      this.dinosaur.jump();
+    }
+    
   }
 }
