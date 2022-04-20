@@ -4,7 +4,7 @@ export class DinaChrome {
   startGame() {
     this.createPlayground();
     this.loadDinosaur();
-    this.startDinoRun();
+    this.dinosaur.run();
   }
 
   createPlayground() {
@@ -15,17 +15,6 @@ export class DinaChrome {
 
   loadDinosaur() {
     this.dinosaur = new Dinosaur(2, 12);
-  }
-
-  startDinoRun() {
-    this.dinoRunInterval = setInterval(
-      (function (self) {
-        return function () {
-          self.moveDinoRight();
-        }
-      })(this),
-      10
-    );
   }
 
   moveDinoRight() {
