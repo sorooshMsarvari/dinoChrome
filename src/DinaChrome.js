@@ -4,7 +4,6 @@ export class DinaChrome {
   startGame() {
     this.createPlayground();
     this.loadDinosaur();
-    this.dinosaur.run();
     document.body.onkeydown = (function (self) {
       return function (e) {
         self.handleKeyPress(e);
@@ -20,10 +19,6 @@ export class DinaChrome {
 
   loadDinosaur() {
     this.dinosaur = new Dinosaur(0, 0);
-  }
-
-  moveDinoRight() {
-    this.dinosaur.moveRight();
   }
 
   handleKeyPress(e) {

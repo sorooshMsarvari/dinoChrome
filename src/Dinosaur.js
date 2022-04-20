@@ -31,25 +31,6 @@ export class Dinosaur {
     this.dinoImg.style.left = this.x * 10 + 'px';
   }
 
-  run() {
-    this.runInternal = setInterval(
-      (function (self) {
-        return function () {
-          self.moveRight();
-        }
-      })(this),
-      RUN_INTERVAL
-    );
-  }
-
-  moveRight() {
-    this.x += RUN_DELTA;
-    if (this.x > 130) {
-      this.x = 0;
-    }
-    this.setPostion();
-  }
-
   jump() {
     if (this.jumpInterval !== null)
       return;
