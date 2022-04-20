@@ -1,3 +1,6 @@
+const MOVE_INTERVAL = 10;
+
+
 export class Cactus {
   constructor(horizantal_ratio, x) {
     this.x = x;
@@ -5,6 +8,7 @@ export class Cactus {
     this.horizantal_ratio = horizantal_ratio
     this.createHtmlElement();
     this.createHtml();
+    // this.move();
   }
 
   createHtmlElement() {
@@ -23,5 +27,21 @@ export class Cactus {
   setPostion() {
     this.cactusImg.style.top = this.y * 10 + 'px';
     this.cactusImg.style.left = (this.x * this.horizantal_ratio - 59) + 'px';
+  }
+
+  move() {
+    this.moveInterval = setInterval(
+      (function (self) {
+        return function () {
+          self.moveLeft();
+        }
+      })(this),
+      MOVE_INTERVAL
+    );
+  }
+
+  moveLeft() {
+    this.x -= 1;
+    this.setPostion();
   }
 }

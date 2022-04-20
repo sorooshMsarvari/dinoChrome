@@ -3,6 +3,8 @@ import { Cactus } from './Cactus.js';
 import { Playground } from './Playground.js';
 
 const PLAYGROUND_SIZE_PERCENT = 0.8;
+export const PLAYGROUND_BEGGING = 0;
+export const PLAYGROUND_END = 1000;
 
 export class DinaChrome {
   startGame() {
@@ -22,7 +24,7 @@ export class DinaChrome {
 
   loadDinosaur() {
     this.dinosaur = new Dinosaur(this.horizantal_ratio);
-    this.cactus = new Cactus(this.horizantal_ratio, 80);
+    this.cactus = new Cactus(this.horizantal_ratio, PLAYGROUND_END);
   }
 
   handleKeyPress(e) {
