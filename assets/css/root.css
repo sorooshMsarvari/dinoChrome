@@ -1,9 +1,8 @@
 #playground {
   background-color: rgb(170, 193, 223);
-  height: 40vh;
   position: absolute;
   top: 30vh;
-  width: 80vw;
+  height: 40vh;
   left: 10vw;
 }
 
