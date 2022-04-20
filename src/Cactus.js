@@ -22,6 +22,6 @@ export class Cactus {
 
   setPostion() {
     this.cactusImg.style.top = this.y * 10 + 'px';
-    this.cactusImg.style.left = this.x * 10 + 'px';
+    this.cactusImg.style.left = (this.x * this.horizantal_ratio - 59) + 'px';
   }
 }
