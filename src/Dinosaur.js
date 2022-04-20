@@ -5,9 +5,10 @@ const JUMP_DELTA = 0.2;
 const JUMP_HEIGHT = 50;
 
 export class Dinosaur {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
+  constructor(horizantal_ratio) {
+    this.x = 0;
+    this.y = 0;
+    this.horizantal_ratio = horizantal_ratio;
     this.createHtmlElement();
     this.createHtml();
     this.jumpInterval = null;

@@ -1,7 +1,8 @@
 export class Cactus {
-  constructor(x, y) {
+  constructor(horizantal_ratio, x) {
     this.x = x;
-    this.y = y;
+    this.y = 0;
+    this.horizantal_ratio = horizantal_ratio
     this.createHtmlElement();
     this.createHtml();
   }
