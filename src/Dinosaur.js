@@ -2,7 +2,7 @@ const RUN_INTERVAL = 10;
 const JUMP_INTERVAL = 5;
 const RUN_DELTA = 0.15;
 const JUMP_DELTA = 0.2;
-const JUMP_HEIGHT = 50;
+const JUMP_HEIGHT = 90;
 
 export class Dinosaur {
   constructor(horizantal_ratio) {

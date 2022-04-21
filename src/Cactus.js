@@ -1,4 +1,4 @@
-const MOVE_INTERVAL = 10;
+const MOVE_INTERVAL = 5;
 
 
 export class Cactus {

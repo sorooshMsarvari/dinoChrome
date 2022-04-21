@@ -1,18 +1,18 @@
 #playground {
   background-color: rgb(170, 193, 223);
   position: absolute;
-  top: 30vh;
-  height: 40vh;
+  top: 20vh;
+  height: 60vh;
   left: 10vw;
 }
 
 #dinoImg {
   position: absolute;
-  margin-top: 120px;
+  margin-top: 200px;
   margin-left: 10px;
 }
 
 #cactusImg {
   position: absolute;
-  margin-top: 120px;
+  margin-top: 200px;
 }
