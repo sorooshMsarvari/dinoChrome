@@ -44,7 +44,7 @@ export class Cactus {
 
   moveLeft() {
     this.x -= 1;
-    if (this.x <= 0){
+    if (this.x <= 20){
       clearInterval(this.moveInterval);
       this.delete_callback();
     }
