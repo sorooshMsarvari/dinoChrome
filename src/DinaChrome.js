@@ -5,6 +5,7 @@ import { Playground } from './Playground.js';
 const PLAYGROUND_SIZE_PERCENT = 0.8;
 export const PLAYGROUND_BEGGING = 0;
 export const PLAYGROUND_END = 1000;
+export const OBSTACLE_GENERATION_RATE = 2000
 
 export class DinaChrome {
   constructor() {
@@ -20,7 +21,7 @@ export class DinaChrome {
           self.make_new_cactus();
         }
       })(this),
-      4000
+      OBSTACLE_GENERATION_RATE
     );
     document.body.onkeydown = (function (self) {
       return function (e) {
