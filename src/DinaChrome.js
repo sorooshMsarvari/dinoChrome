@@ -5,7 +5,8 @@ import { Playground } from './Playground.js';
 const PLAYGROUND_SIZE_PERCENT = 0.8;
 export const PLAYGROUND_BEGGING = 0;
 export const PLAYGROUND_END = 1000;
-export const OBSTACLE_GENERATION_RATE = 2000
+export const OBSTACLE_GENERATION_RATE = 2000;
+const GAME_RATE = 5;
 
 export class DinaChrome {
   startGame() {
@@ -13,6 +14,7 @@ export class DinaChrome {
     this.obstacleManager = new ObstacleManager(this.horizantalRatio);
     this.loadDinosaur();
     this.obstacleManager.startMakingObstacle();
+    this.startGameLoop();
 
     document.body.onkeydown = (function (self) {
       return function (e) {
@@ -28,6 +30,17 @@ export class DinaChrome {
 
   loadDinosaur() {
     this.dinosaur = new Dinosaur(this.horizantalRatio);
+  }
+
+  startGameLoop() {
+    this.gameLoop = setInterval(
+      (function (self) {
+        return function () {
+          self.updateGame();
+        }
+      })(this),
+      GAME_RATE
+    );
   }
 
   updateGame() {

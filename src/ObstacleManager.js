@@ -38,7 +38,7 @@ export class ObstacleManager {
   }  
 
   updateObstacles() {
-    for(let obs in this.obstacleCollection){
+    for(const obs of this.obstacleCollection){
       obs.moveLeft();
     }
   }
