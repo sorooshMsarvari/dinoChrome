@@ -36,4 +36,10 @@ export class ObstacleManager {
     let obs = this.obstacleCollection.shift();
     obs.remove();
   }  
+
+  updateObstacles() {
+    for(let obs in this.obstacleCollection){
+      obs.moveLeft();
+    }
+  }
 }

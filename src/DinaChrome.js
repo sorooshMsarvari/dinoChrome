@@ -30,6 +30,10 @@ export class DinaChrome {
     this.dinosaur = new Dinosaur(this.horizantalRatio);
   }
 
+  updateGame() {
+    this.obstacleManager.updateObstacles();
+  }
+
   handleKeyPress(e) {
     if (e.keyCode === 32) {
       this.dinosaur.jump();
