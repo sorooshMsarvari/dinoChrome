@@ -7,13 +7,16 @@ export class Cactus {
     this.y = 0;
     this.delete_callback = delete_callback;
     this.horizantal_ratio = horizantal_ratio;
-    let cactusImg = this.createImg();
-    this.hitbox = new Hitbox(cactusImg, 10, 20);
-    this.div = this.hitbox.createHtmlElement();
-    
-    this.addToPlayground();
 
+    this.startUp();
     this.move();
+  }
+
+  startUp() {
+    let cactusImg = this.createImg();
+    this.hitbox = new Hitbox(cactusImg, 5, 10);
+    this.htmlElement = this.hitbox.createHtmlElement();
+    this.addToPlayground();
   }
 
   createImg() {
@@ -26,12 +29,12 @@ export class Cactus {
   addToPlayground() {
     let playground = document.getElementById('playground');
     this.setPostion();
-    playground.appendChild(this.div);
+    playground.appendChild(this.htmlElement);
   }
 
   setPostion() {
-    this.div.style.top = this.y * 10 + 'px';
-    this.div.style.left = (this.x * this.horizantal_ratio) + 'px';
+    this.htmlElement.style.top = this.y * 10 + 'px';
+    this.htmlElement.style.left = (this.x * this.horizantal_ratio) + 'px';
   }
 
   move() {
@@ -56,7 +59,7 @@ export class Cactus {
 
   remove() {
     let playground = document.getElementById('playground');
-    playground.removeChild(this.div);
+    playground.removeChild(this.htmlElement);
     delete this;
   }
 }
