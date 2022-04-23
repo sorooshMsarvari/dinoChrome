@@ -41,6 +41,10 @@ export class Hitbox {
     this.y += delta;
   }
 
+  zeroVertical() {
+    this.y = 0;
+  }
+
   moveRight(delta) {
     this.x += delta;
   }
@@ -52,7 +56,6 @@ export class Hitbox {
   reachedLeftEnd() {
     return this.x <= 0;
   }
-
 
   remove() {
     let playground = document.getElementById('playground');

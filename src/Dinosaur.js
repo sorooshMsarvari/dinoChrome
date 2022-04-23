@@ -12,17 +12,11 @@ export class Dinosaur {
     this.x = 0;
     this.y = 0;
     this.horizantal_ratio = horizantal_ratio;
-
-    this.startUp();
-
-  }
-  
-  startUp() {
-    let dinoImg = this.createImg();
-    this.hitbox = new Hitbox(dinoImg, 10, 10);
-    this.htmlElement = this.hitbox.createHtmlElement();
-    this.addToPlayground();
     this.jumpInterval = null;
+
+    let dinoImg = this.createImg();
+    this.hitbox = new Hitbox(dinoImg, 10, 10, 0, 0, horizantal_ratio);
+
   }
 
   createImg() {
@@ -30,17 +24,6 @@ export class Dinosaur {
     dinoImg.src = './assets/img/dinosaur.png';
     dinoImg.id = 'dinoImg';
     return dinoImg;
-  }
-
-  addToPlayground() {
-    let playground = document.getElementById('playground');
-    this.setPostion();
-    playground.appendChild(this.htmlElement);
-  }
-
-  setPostion() {
-    this.htmlElement.style.top = this.y * 10 + 'px';
-    this.htmlElement.style.left = this.x * 10 + 'px';
   }
 
   jump() {
@@ -60,18 +43,18 @@ export class Dinosaur {
   makeJump() {
     this.jumpCount++;
     if (this.jumpCount < JUMP_HEIGHT) {
-      this.y -= JUMP_DELTA;
+      this.hitbox.moveUp(JUMP_DELTA);
     }
     else if ((this.jumpCount >= JUMP_HEIGHT) && (this.jumpCount < 2 * JUMP_HEIGHT)) {
-      this.y += JUMP_DELTA;
+      this.hitbox.moveDown(JUMP_DELTA);
     }
     else {
-      this.y = 0;
+      this.hitbox.zeroVertical();
       clearInterval(this.jumpInterval);
       this.jumpInterval = null;
       this.jumpCount = 0;
     }
-    this.setPostion();
+    this.hitbox.render();
   }
 
 
