@@ -47,7 +47,6 @@ export class DinaChrome {
     this.obstacleManager.updateObstacles();
     const collision = this.obstacleManager.hasObstacleCollideWithDino(this.dinosaur.hitbox);
     if(collision) {
-      // console.log("Obstacle collision")
       this.freeze();
     }
   }
@@ -67,7 +66,7 @@ export class DinaChrome {
   }
 
   disableKeyPress() {
-    document.body.onchange = null;
+    document.body.onkeydown = null;
 
   }
 }
