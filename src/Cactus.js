@@ -1,5 +1,5 @@
 const MOVE_INTERVAL = 5;
-import {Hitbox} from './Hitbox.js'
+import {Hitbox} from './Hitbox.js';
 
 export class Cactus {
   constructor(horizantal_ratio, x, delete_callback) {

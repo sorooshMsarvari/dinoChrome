@@ -6,11 +6,6 @@
   left: 10vw;
 }
 
-#dinoImg {
-  position: absolute;
-  margin-top: 200px;
-  margin-left: 10px;
-}
 
 .hitbox {
   position: absolute;
@@ -18,7 +13,7 @@
   border: 1px solid blue;
 }
 
-.hitbox #cactusImg {
+.hitbox img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -28,4 +23,8 @@
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+.hitbox:has( #dinoImg) {
+  margin-left: 10px;
 }
