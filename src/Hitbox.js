@@ -1,7 +1,9 @@
 const SIZE_RATIO_TO_PX = 10;
 
 export class Hitbox {
-  constructor(htmlElement, width, height) {
+  constructor(htmlElement, width, height, x, y) {
+    this.x = x;
+    this.y = y;
     this.htmlElement = htmlElement;
     this.width = width;
     this.height = height;
@@ -15,4 +17,22 @@ export class Hitbox {
     div.appendChild(this.htmlElement);
     return div;
   }
+
+  moveUp(delta) {
+    this.y -= delta;
+  }
+
+  moveDown(delta) {
+    this.y += delta;
+  }
+
+  moveRight(delta) {
+    this.x += delta;
+  }
+
+  moveLeft(delta) {
+    this.x -= delta;
+  }
+
+  
 }
