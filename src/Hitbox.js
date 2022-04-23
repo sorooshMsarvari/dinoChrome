@@ -9,13 +9,11 @@ export class Hitbox {
     this.horizantal_ratio = horizantal_ratio;
 
     this.div = this.createHtmlElement(htmlElement);
+    this.addToPlayground();
+    
   }
 
-  render() {
-    this.div.style.top = this.y * 10 + 'px';
-    this.div.style.left = (this.x * this.horizantal_ratio) + 'px';
-  }
-
+  
   createHtmlElement(htmlElement) {
     let div = document.createElement('div');
     div.className = 'hitbox';
@@ -23,6 +21,17 @@ export class Hitbox {
     div.style.height = (this.height * SIZE_RATIO_TO_PX) + 'px';
     div.appendChild(this.htmlElement);
     return div;
+  }
+
+  addToPlayground() {
+    let playground = document.getElementById('playground');
+    this.render();
+    playground.appendChild(this.div);
+  }
+
+  render() {
+    this.div.style.top = this.y * 10 + 'px';
+    this.div.style.left = (this.x * this.horizantal_ratio) + 'px';
   }
 
   moveUp(delta) {
@@ -39,6 +48,17 @@ export class Hitbox {
 
   moveLeft(delta) {
     this.x -= delta;
+  }
+
+  reachedLeftEnd() {
+    return this.x <= 0;
+  }
+
+
+  remove() {
+    let playground = document.getElementById('playground');
+    playground.removeChild(this.div);
+    delete this;
   }
 
 
