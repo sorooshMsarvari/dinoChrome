@@ -42,4 +42,13 @@ export class ObstacleManager {
       obs.moveLeft();
     }
   }
+
+  hasObstacleCollideWithDino(dinoHitbox) {
+    for(const obs of this.obstacleCollection){
+      if(obs.hitbox.hasCollied(dinoHitbox)){
+        return true;
+      }
+    }
+    return false;
+  }
 }

@@ -45,6 +45,10 @@ export class DinaChrome {
 
   updateGame() {
     this.obstacleManager.updateObstacles();
+    const collision = this.obstacleManager.hasObstacleCollideWithDino(this.dinosaur.hitbox);
+    if(collision) {
+      console.log("Obstacle collision")
+    }
   }
 
   handleKeyPress(e) {

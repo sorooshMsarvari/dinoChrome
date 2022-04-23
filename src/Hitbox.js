@@ -72,5 +72,15 @@ export class Hitbox {
     delete this;
   }
 
+  hasCollied(other) {
+    const horizantalCollision = this.hasColliedLinear(this.x, this.width, other.x, other.width);
+    const vertivalCollision = this.hasColliedLinear(this.y, this.height, other.y, other.height);
+    return horizantalCollision && vertivalCollision;
+  }
+
+  hasColliedLinear(startPoint1, value1, startPoint2, value2) {
+    return (startPoint1 <= startPoint2 && startPoint2 <= startPoint1 + value1) ||
+    (startPoint2 <= startPoint1 && startPoint1 <= startPoint2 + value2);
+  }
 
 }
