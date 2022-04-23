@@ -1,3 +1,5 @@
+import {PLAYGROUND_END, OBSTACLE_GENERATION_RATE} from './DinaChrome.js';
+
 const SIZE_RATIO_TO_PX = 10;
 
 export class Hitbox {
@@ -24,6 +26,7 @@ export class Hitbox {
 
   addToPlayground() {
     let playground = document.getElementById('playground');
+    this.fixXAtEnd();
     this.render();
     playground.appendChild(this.div);
   }
@@ -31,6 +34,12 @@ export class Hitbox {
   render() {
     this.div.style.top = this.y * 10 + 'px';
     this.div.style.left = (this.x * this.horizantalRatio) + 'px';
+  }
+
+  fixXAtEnd() {
+    if(this.x === PLAYGROUND_END){
+      this.x -= this.width * SIZE_RATIO_TO_PX / this.horizantalRatio;
+    }
   }
 
   moveUp(delta) {
