@@ -14,7 +14,7 @@ export class Dinosaur {
     this.jumpInterval = null;
 
     let dinoImg = this.createImg();
-    this.hitbox = new Hitbox(dinoImg, 10, 10, 0, 0, horizantalRatio);
+    this.hitbox = new Hitbox(dinoImg, 10, 10, 40, 0, horizantalRatio);
 
   }
 
