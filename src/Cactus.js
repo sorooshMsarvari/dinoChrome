@@ -3,20 +3,13 @@ import {Hitbox} from './Hitbox.js';
 
 export class Cactus {
   constructor(horizantal_ratio, x, delete_callback) {
-    this.x = x;
-    this.y = 0;
     this.delete_callback = delete_callback;
     this.horizantal_ratio = horizantal_ratio;
 
-    this.startUp();
-    this.move();
-  }
-
-  startUp() {
     let cactusImg = this.createImg();
-    this.hitbox = new Hitbox(cactusImg, 5, 10);
-    this.htmlElement = this.hitbox.createHtmlElement();
-    this.addToPlayground();
+    this.hitbox = new Hitbox(cactusImg, 5, 10, x, 0, horizantal_ratio);
+
+    this.move();
   }
 
   createImg() {
@@ -24,17 +17,6 @@ export class Cactus {
     cactusImg.src = './assets/img/cac1.png';
     cactusImg.id = 'cactusImg';
     return cactusImg;
-  }
-
-  addToPlayground() {
-    let playground = document.getElementById('playground');
-    this.setPostion();
-    playground.appendChild(this.htmlElement);
-  }
-
-  setPostion() {
-    this.htmlElement.style.top = this.y * 10 + 'px';
-    this.htmlElement.style.left = (this.x * this.horizantal_ratio) + 'px';
   }
 
   move() {
@@ -49,17 +31,16 @@ export class Cactus {
   }
 
   moveLeft() {
-    this.x -= 1;
-    if (this.x <= 0){
+    this.hitbox.moveLeft(1);
+    if (this.hitbox.reachedLeftEnd()){
       clearInterval(this.moveInterval);
       this.delete_callback();
     }
-    this.setPostion();
+    this.hitbox.render();
   }
 
   remove() {
-    let playground = document.getElementById('playground');
-    playground.removeChild(this.htmlElement);
+    this.hitbox.remove();
     delete this;
   }
 }

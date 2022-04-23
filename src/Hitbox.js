@@ -10,7 +10,6 @@ export class Hitbox {
 
     this.div = this.createHtmlElement(htmlElement);
     this.addToPlayground();
-    
   }
 
   
@@ -19,7 +18,7 @@ export class Hitbox {
     div.className = 'hitbox';
     div.style.width = (this.width * SIZE_RATIO_TO_PX) + 'px';
     div.style.height = (this.height * SIZE_RATIO_TO_PX) + 'px';
-    div.appendChild(this.htmlElement);
+    div.appendChild(htmlElement);
     return div;
   }
 
