@@ -8,13 +8,13 @@ import {Hitbox} from './Hitbox.js'
 
 
 export class Dinosaur {
-  constructor(horizantal_ratio) {
+  constructor(horizantalRatio) {
     this.x = 0;
     this.y = 0;
     this.jumpInterval = null;
 
     let dinoImg = this.createImg();
-    this.hitbox = new Hitbox(dinoImg, 10, 10, 0, 0, horizantal_ratio);
+    this.hitbox = new Hitbox(dinoImg, 10, 10, 0, 0, horizantalRatio);
 
   }
 

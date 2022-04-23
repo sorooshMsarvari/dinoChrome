@@ -1,12 +1,12 @@
 const SIZE_RATIO_TO_PX = 10;
 
 export class Hitbox {
-  constructor(htmlElement, width, height, x, y, horizantal_ratio) {
+  constructor(htmlElement, width, height, x, y, horizantalRatio) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
-    this.horizantal_ratio = horizantal_ratio;
+    this.horizantalRatio = horizantalRatio;
 
     this.div = this.createHtmlElement(htmlElement);
     this.addToPlayground();
@@ -30,7 +30,7 @@ export class Hitbox {
 
   render() {
     this.div.style.top = this.y * 10 + 'px';
-    this.div.style.left = (this.x * this.horizantal_ratio) + 'px';
+    this.div.style.left = (this.x * this.horizantalRatio) + 'px';
   }
 
   moveUp(delta) {

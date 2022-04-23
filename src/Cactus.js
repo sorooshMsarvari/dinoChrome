@@ -2,11 +2,11 @@ const MOVE_INTERVAL = 5;
 import {Hitbox} from './Hitbox.js';
 
 export class Cactus {
-  constructor(horizantal_ratio, x, delete_callback) {
-    this.delete_callback = delete_callback;
+  constructor(horizantalRatio, x, deleteCallback) {
+    this.deleteCallback = deleteCallback;
 
     let cactusImg = this.createImg();
-    this.hitbox = new Hitbox(cactusImg, 5, 10, x, 0, horizantal_ratio);
+    this.hitbox = new Hitbox(cactusImg, 5, 10, x, 0, horizantalRatio);
 
     this.move();
   }
@@ -33,7 +33,7 @@ export class Cactus {
     this.hitbox.moveLeft(1);
     if (this.hitbox.reachedLeftEnd()){
       clearInterval(this.moveInterval);
-      this.delete_callback();
+      this.deleteCallback();
     }
     this.hitbox.render();
   }
