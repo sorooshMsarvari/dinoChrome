@@ -11,7 +11,6 @@ export class Dinosaur {
   constructor(horizantal_ratio) {
     this.x = 0;
     this.y = 0;
-    this.horizantal_ratio = horizantal_ratio;
     this.jumpInterval = null;
 
     let dinoImg = this.createImg();

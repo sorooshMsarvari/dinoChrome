@@ -4,7 +4,6 @@ import {Hitbox} from './Hitbox.js';
 export class Cactus {
   constructor(horizantal_ratio, x, delete_callback) {
     this.delete_callback = delete_callback;
-    this.horizantal_ratio = horizantal_ratio;
 
     let cactusImg = this.createImg();
     this.hitbox = new Hitbox(cactusImg, 5, 10, x, 0, horizantal_ratio);
