@@ -7,8 +7,6 @@ export class Cactus {
 
     let cactusImg = this.createImg();
     this.hitbox = new Hitbox(cactusImg, 5, 10, x, 0, horizantalRatio);
-
-    this.move();
   }
 
   createImg() {
@@ -16,17 +14,6 @@ export class Cactus {
     cactusImg.src = './assets/img/cac1.png';
     cactusImg.id = 'cactusImg';
     return cactusImg;
-  }
-
-  move() {
-    this.moveInterval = setInterval(
-      (function (self) {
-        return function () {
-          self.moveLeft();
-        }
-      })(this),
-      MOVE_INTERVAL
-    );
   }
 
   moveLeft() {
