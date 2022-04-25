@@ -5,4 +5,8 @@ export class Playground {
     playground.style.width = windowPercentage * window.screen.width + 'px';
     document.body.appendChild(playground);
   }
+
+  remove(){
+    document.getElementById('playground').remove();
+  }
 }

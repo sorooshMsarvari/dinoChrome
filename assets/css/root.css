@@ -27,3 +27,10 @@
 .hitbox:has( #dinoImg) {
   margin-left: 10px;
 }
+
+.reset-button {
+  padding: 10px;
+  margin: 20px;
+  position: relative;
+  float: right;
+}

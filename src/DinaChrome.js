@@ -24,7 +24,7 @@ export class DinaChrome {
   }
 
   createPlayground() {
-    new Playground(PLAYGROUND_SIZE_PERCENT);
+    this.palyground = new Playground(PLAYGROUND_SIZE_PERCENT);
     this.horizantalRatio = window.screen.width * PLAYGROUND_SIZE_PERCENT / 1000;
   }
 
@@ -46,8 +46,9 @@ export class DinaChrome {
   updateGame() {
     this.obstacleManager.updateObstacles();
     const collision = this.obstacleManager.hasObstacleCollideWithDino(this.dinosaur.hitbox);
-    if(collision) {
+    if (collision) {
       this.freeze();
+      this.showLosePrompt();
     }
   }
 
@@ -63,6 +64,28 @@ export class DinaChrome {
     clearInterval(this.obstacleManager.obstacleGenerationInterval);
     clearInterval(this.dinosaur.jumpInterval);
     this.disableKeyPress();
+  }
+
+  showLosePrompt() {
+    let playground = document.getElementById('playground');
+
+    let resetButton = document.createElement('button');
+    resetButton.className = 'reset-button';
+    resetButton.textContent = 'Reset';
+    resetButton.onclick = function (self) {
+      return function (e) {
+        self.resetGame();
+      }
+    }(this)
+    playground.appendChild(resetButton);
+
+  }
+
+  resetGame() {
+    delete this.obstacleManager;
+    delete this.dinosaur;
+    this.palyground.remove();
+    this.startGame();
   }
 
   disableKeyPress() {
